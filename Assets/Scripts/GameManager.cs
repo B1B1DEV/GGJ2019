@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public Transform levelBounds;
+
     [Header("Internal")]
     public MSVehicleControllerFree carPrefab;
+    public MinimapSizing minimapPrefab;
+    public RectTransform GUIPrefab;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
+        m_GUI = Instantiate<RectTransform>(GUIPrefab);
+
         m_blackout = FindObjectOfType<Blackout>();
         m_startPoints = FindObjectsOfType<StartPointController>();
         m_destinations = FindObjectsOfType<DestinationController>();
@@ -33,6 +39,11 @@ public class GameManager : MonoBehaviour {
         if (Physics.Raycast(m_currentStartPoint.transform.position, Vector3.down, out hit, 100.0f, LayerMask.GetMask("Default")))
         {
             m_car = Instantiate<MSVehicleControllerFree>(carPrefab, hit.point, m_currentStartPoint.transform.rotation);
+
+            m_minimap = Instantiate<MinimapSizing>(minimapPrefab);
+            m_minimap.car = m_car.transform;
+            m_minimap.house = m_currentDestination.transform;
+            m_minimap.levelPlane = levelBounds;
         }
 
         if (m_car)
@@ -69,4 +80,6 @@ public class GameManager : MonoBehaviour {
 
     private MSVehicleControllerFree m_car;
     private Blackout m_blackout;
+    private MinimapSizing m_minimap;
+    private RectTransform m_GUI;
 }
