@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4276950960758176}
   - component: {fileID: 114010379835618766}
+  - component: {fileID: 114102019601280094}
   m_Layer: 0
   m_Name: Prerequisites
   m_TagString: Untagged
@@ -51,3 +52,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370e51dc3fc783448912c6e5953d0219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drunkenness: 0
+--- !u!114 &114102019601280094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996347381516268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d890e1cf967d74abd7ce2a9bf86736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelBounds: {fileID: 0}
+  carPrefab: {fileID: 114597767939661950, guid: 9dd24dcb5ff8cc74d9d4fb1ef33d37b5,
+    type: 2}
+  minimapPrefab: {fileID: 114743649336176828, guid: 275cc424397b01a4bba4f543d8394791,
+    type: 2}
+  GUIPrefab: {fileID: 224116886357373576, guid: a43a99c050bca1a4ba582a6cb6ee3353,
+    type: 2}

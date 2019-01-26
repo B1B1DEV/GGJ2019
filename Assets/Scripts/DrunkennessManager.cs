@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DrunkennessManager : MonoBehaviour
 {
+    public float timeToTotalDrunkenness = 60.0f;
+
     [Range(0f, 1f)]
     [SerializeField]
     private float drunkenness = 0.0f;
@@ -14,13 +16,15 @@ public class DrunkennessManager : MonoBehaviour
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        drunkenness = Mathf.Clamp01(drunkenness + Time.deltaTime / timeToTotalDrunkenness);
 	}
 
     public static DrunkennessManager Instance()
