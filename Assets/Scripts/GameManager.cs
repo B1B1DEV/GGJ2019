@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
         m_currentDestination = m_destinations[Random.Range(0, m_destinations.Length)];
 
         RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(m_currentStartPoint.transform.position, Vector3.down, out hit, 100.0f, LayerMask.GetMask("Default")))
+        if (Physics.Raycast(m_currentStartPoint.transform.position, Vector3.down, out hit, 100.0f, LayerMask.GetMask("Default", "Roads")))
         {
             m_car = Instantiate<MSVehicleControllerFree>(carPrefab, hit.point, m_currentStartPoint.transform.rotation);
 
