@@ -977,7 +977,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511026439631052}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: -1.5811093, y: 0.93, z: -4.0342884}
+  m_LocalPosition: {x: -26.42, y: 1.27, z: 63.931816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172139889732146}
@@ -2048,7 +2048,7 @@ MonoBehaviour:
         displacementSpeed: 5
         customLookAt: 0
       firstPersonCamera:
-        sensibility: 10
+        sensibility: 5
         horizontalAngle: 65
         verticalAngle: 20
       orbitalCamera:
@@ -2579,6 +2579,16 @@ MonoBehaviour:
   disableVehicle: 0
   handBrakeTrue: 0
   isInsideTheCar: 0
+  carThrust: 1
+  drunkennessPhaseFactor: 0.5
+  yawDrunkAmplitude: 50
+  yawDrunkPhase: 2.5
+  pitchDrunkAmplitude: 25
+  pitchDrunkPhase: 2.5
+  rollDrunkAmplitude: 10
+  rollDrunkPhase: 2.5
+  inputWheelDrunkAmplitude: 0.6
+  inputWheelDrunkPhase: 0.3
   input: {fileID: 114087996485103256}
 --- !u!124 &124080908216672236
 Behaviour:
