@@ -510,7 +510,9 @@ public class MSVehicleControllerFree : MonoBehaviour {
     private bool m_isThrustEnabled = false;
 
     public delegate void DestinationDelegate(MSVehicleControllerFree _vehicle, DestinationController _destination);
+    public delegate void CollisionDelegate(MSVehicleControllerFree _vehicle, Collision _collision);
     public event DestinationDelegate destinationReached;
+    public event CollisionDelegate hitCollision;
 
     public void setThrustEnabled(bool _enabled)
     {
@@ -1683,6 +1685,10 @@ public class MSVehicleControllerFree : MonoBehaviour {
 	#region VehicleDamage
 	void OnCollisionEnter (Collision collision){
 		if (collision.contacts.Length > 0){
+
+            if (hitCollision != null)
+                hitCollision(this, collision);
+
 			if (collision.relativeVelocity.magnitude > 5 && collision.contacts [0].thisCollider.gameObject.transform != transform.parent) {
 				if (_sounds.collisionSounds.Length > 0) {
 					beatsSoundAUD.clip = _sounds.collisionSounds [UnityEngine.Random.Range (0, _sounds.collisionSounds.Length)];
@@ -2028,7 +2034,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		}
 		//evitar RPM, freio ou torques invalidos, EvitarRotacaoSemTorque
 		if (!wheelCollider.isGrounded && Mathf.Abs (wheelCollider.rpm) > 0.5f && Mathf.Abs (verticalInput) < 0.05f && wheelCollider.motorTorque < 5.0f) {
-			wheelCollider.brakeTorque += _vehicleSettings.vehicleMass * Time.deltaTime * 50;
+			wheelCollider.brakeTorque += _vehicleSettings.vehicleMass * Time.deltaTime;
 		}
 		if (KMh < 0.5f && Mathf.Abs (verticalInput) < 0.05f) {
 			if (wheelCollider.rpm > (25 / wheelCollider.radius)) {
