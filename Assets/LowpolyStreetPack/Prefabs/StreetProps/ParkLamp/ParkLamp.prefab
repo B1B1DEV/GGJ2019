@@ -72,8 +72,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 16.79, y: 0, z: 32.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -185,12 +185,12 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.99264705, g: 0.6777383, b: 0, a: 1}
-  m_Intensity: 1.370351
-  m_Range: 6
+  m_Intensity: 1.2
+  m_Range: 7.5
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -204,13 +204,13 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_ShadowRadius: 0
+  m_ShadowRadius: 3
   m_ShadowAngle: 0
 --- !u!108 &10800002
 Light:
@@ -222,12 +222,12 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.99264705, g: 0.6777383, b: 0, a: 1}
-  m_Intensity: 1.370351
-  m_Range: 6
+  m_Intensity: 1.2
+  m_Range: 7.5
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -241,13 +241,13 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_ShadowRadius: 0
+  m_ShadowRadius: 3
   m_ShadowAngle: 0
 --- !u!108 &10800004
 Light:
@@ -259,7 +259,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.99264705, g: 0.6777383, b: 0, a: 1}
-  m_Intensity: 1.370351
+  m_Intensity: 1.35
   m_Range: 0.7
   m_SpotAngle: 30
   m_CookieSize: 10
