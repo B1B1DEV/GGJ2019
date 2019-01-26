@@ -477,10 +477,33 @@ public class MSVehicleControllerFree : MonoBehaviour {
 	[HideInInspector] 
 	public bool isInsideTheCar;
 
+    [Header("Car Hack")]
+    public float carThrust = 1.0f;
+
+    [Header("Drunkenness")]
+    public float drunkennessPhaseFactor = 0.1f;
+    public float yawDrunkAmplitude = 10.0f;
+    public float yawDrunkPhase = 1.0f;
+
+    public float pitchDrunkAmplitude = 20.0f;
+    public float pitchDrunkPhase = 1.0f;
+
+    public float rollDrunkAmplitude = 20.0f;
+    public float rollDrunkPhase = 1.0f;
+
+    public float inputWheelDrunkAmplitude = 0.5f;
+    public float inputWheelDrunkPhase = 3.0f;
+
+
     //MSSceneControllerFree controls;
     public InputController input;
 
-	void Awake(){
+    private float m_pitchDrunkTime;
+    private float m_yawDrunkTime;
+    private float m_rollDrunkTime;
+    private float m_inputWheelDrunkTime;
+
+    void Awake(){
 		enableSkidMarksOnStart = true;
 		DebugStartErrors ();
 		SetCameras ();
@@ -829,9 +852,22 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			rotationY += mouseYInput * _cameras.cameraSettings.firstPersonCamera.sensibility;
 			rotationX = ClampAngle (rotationX, -_cameras.cameraSettings.firstPersonCamera.horizontalAngle, _cameras.cameraSettings.firstPersonCamera.horizontalAngle);
 			rotationY = ClampAngle (rotationY, -_cameras.cameraSettings.firstPersonCamera.verticalAngle, _cameras.cameraSettings.firstPersonCamera.verticalAngle);
-			xQuaternionCameras = Quaternion.AngleAxis (rotationX, Vector3.up);
-			yQuaternionCameras = Quaternion.AngleAxis (rotationY, -Vector3.right);
-			newRotationCameras = startRotationCameras [indexCamera] * xQuaternionCameras * yQuaternionCameras;
+            
+            float drunkenness = DrunkennessManager.GetDrunkenness();
+            float drunkennessPhaseModifier = drunkenness * drunkennessPhaseFactor;
+
+            m_pitchDrunkTime += yawDrunkPhase * drunkennessPhaseModifier * Time.deltaTime;
+            m_yawDrunkTime += pitchDrunkPhase * drunkennessPhaseModifier * Time.deltaTime;
+            m_rollDrunkTime += rollDrunkPhase * drunkennessPhaseModifier * Time.deltaTime;
+
+            float drunkRotationX = rotationX + (Mathf.PerlinNoise(1.0f, m_pitchDrunkTime) - 0.5f) * 2.0f * yawDrunkAmplitude * drunkenness;
+            float drunkRotationY = rotationY + (Mathf.PerlinNoise(2.0f, m_yawDrunkTime) - 0.5f) * 2.0f * pitchDrunkAmplitude * drunkenness;
+            float drunkRotationZ = (Mathf.PerlinNoise(2.0f, m_rollDrunkTime) - 0.5f) * 2.0f * rollDrunkAmplitude * drunkenness;
+
+			xQuaternionCameras = Quaternion.AngleAxis (drunkRotationX, Vector3.up);
+			yQuaternionCameras = Quaternion.AngleAxis (drunkRotationY, -Vector3.right);
+            Quaternion zQuaternionCameras = Quaternion.AngleAxis (drunkRotationZ, Vector3.forward);
+			newRotationCameras = startRotationCameras [indexCamera] * xQuaternionCameras * yQuaternionCameras * zQuaternionCameras;
 			_cameras.cameras [indexCamera]._camera.transform.localRotation = Quaternion.Lerp (_cameras.cameras [indexCamera]._camera.transform.localRotation, newRotationCameras, Time.deltaTime*10.0f*timeScaleSpeed);
 			break;
 		case CameraTypeClassFree.TipoRotac.FollowPlayer:
@@ -983,9 +1019,20 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		wheelTEIsGrounded = _wheels.leftRearWheel.wheelCollider.isGrounded;
 
         // HACK INPUT HERE
-        float thrust = input.isBreaking() ? 0.0f : 1.0f;
+        float drunkenness = DrunkennessManager.GetDrunkenness();
+        float thrust = input.isBreaking() ? -1.0f : carThrust;
 		verticalInput = thrust;
-		horizontalInput = input.getWheelInput();
+
+        float wheelInput = input.getWheelInput();
+
+        m_inputWheelDrunkTime += Time.deltaTime * inputWheelDrunkPhase;
+
+        float inputWheelDrunkVelocity = Mathf.PerlinNoise(4.0f, m_inputWheelDrunkTime) * 2.0f - 1.0f;
+        float inputWheelDrunkInput = inputWheelDrunkVelocity * inputWheelDrunkAmplitude * drunkenness;
+
+        horizontalInput = inputWheelDrunkInput + wheelInput;
+
+        //horizontalInput = input.getWheelInput();
 		mouseXInput = input.getHeadInput().x;
 		mouseYInput = -input.getHeadInput().y;
         //mouseScrollWheelInput = controls.mouseScrollWheelInput;
@@ -1010,7 +1057,8 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			engineInput = 0;
 		}
 		if (isInsideTheCar) {
-            handBrakeTrue = input.isBreaking();
+            //handBrakeTrue = input.isBreaking();
+            handBrakeTrue = false;
 			/*if (Input.GetKeyDown (controls.controls.handBrakeInput) && controls.controls.enable_handBrakeInput_Input && Time.timeScale > 0.2f) {
 				handBrakeTrue = !handBrakeTrue;
 			}*/
@@ -1813,7 +1861,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			return 0;
 		}
         //if (Input.GetKey (controls.controls.handBrakeInput)&& controls.controls.enable_handBrakeInput_Input) {
-        if (input.isBreaking()) {
+        if (false) {
             return 0;
 		}
 		if (currentGear < 0) {
@@ -1909,7 +1957,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			handBrake_Input = 0;
 		}
         // if (Input.GetKey (controls.controls.handBrakeInput) && controls.controls.enable_handBrakeInput_Input) {
-        if (input.isBreaking())
+        if (false)
         {
 			handBrake_Input = 2;
 		}
