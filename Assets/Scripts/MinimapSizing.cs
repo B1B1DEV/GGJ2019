@@ -9,6 +9,7 @@ public class MinimapSizing : MonoBehaviour {
     public Transform house; // end zone
     public Transform levelPlane; // level plane to get the max size to display on minimap
     public float borderPercent = 20f; // percent of view to add around the 2 objects to obtain the final minimap square
+    public float minCamSize = 5f; // minimum size of camera
 
     public RectTransform houseSprite;
     public RectTransform carSprite;
@@ -38,7 +39,7 @@ public class MinimapSizing : MonoBehaviour {
 
         // orthographicSize is the half of the max distance on the right or forward axes + a safty border zone and limited to the max size of the level
         float minimapSize = Mathf.Min(Mathf.Max(Mathf.Abs(car.position.x - housePosX), Mathf.Abs(car.position.z - housePosZ)) * (1 + borderPercent / 100) / 2, maxSize);
-        minimapCam.orthographicSize = minimapSize;
+        minimapCam.orthographicSize = Mathf.Max(minimapSize,minCamSize);
 
         // The new Camera position is in the middle of the car and the house (y position is kept) but clamped to never display the outside of the plane level
         float posX = Mathf.Clamp((car.position.x + housePosX) / 2, -maxSize + minimapSize, maxSize - minimapSize);
