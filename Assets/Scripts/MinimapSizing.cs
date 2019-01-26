@@ -9,7 +9,7 @@ public class MinimapSizing : MonoBehaviour {
     public Transform house; // end zone
     public Transform levelPlane; // level plane to get the max size to display on minimap
     public float borderPercent = 20f; // percent of view to add around the 2 objects to obtain the final minimap square
-    public float minCamSize = 5f; // minimum size of camera
+    public float minCamSize = 50f; // minimum size of camera
 
     public RectTransform houseSprite;
     public RectTransform carSprite;
