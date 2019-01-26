@@ -494,6 +494,9 @@ public class MSVehicleControllerFree : MonoBehaviour {
     public float inputWheelDrunkAmplitude = 0.5f;
     public float inputWheelDrunkPhase = 3.0f;
 
+    public AnimationCurve inputWheelResponsiveness;
+    public float inputWheelMaxVelocity;
+
 
     //MSSceneControllerFree controls;
     public InputController input;
@@ -502,10 +505,21 @@ public class MSVehicleControllerFree : MonoBehaviour {
     private float m_yawDrunkTime;
     private float m_rollDrunkTime;
     private float m_inputWheelDrunkTime;
+    private float m_inputWheelInputVelocity;
+    private float m_inputWheelInput;
+    private bool m_isThrustEnabled = false;
+
+    public void setThrustEnabled(bool _enabled)
+    {
+        m_isThrustEnabled = _enabled;
+
+        skiddingSoundAUD.volume = 0.86f;
+    }
 
     void Awake(){
 		enableSkidMarksOnStart = true;
-		DebugStartErrors ();
+
+        DebugStartErrors ();
 		SetCameras ();
 	}
 
@@ -561,6 +575,11 @@ public class MSVehicleControllerFree : MonoBehaviour {
         EnterInVehicle();
         EnableCameras(2);
         indexCamera = 2;
+
+        if (FindObjectOfType<GameManager>() == null)
+        {
+            setThrustEnabled(true);
+        }
     }
 
 	void SetValues(){
@@ -651,6 +670,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		}
 		if (_sounds.skiddingSound.standardSound) {
 			skiddingSoundAUD = GenerateAudioSource ("Sound of skid", 10, 1, _sounds.skiddingSound.standardSound, false, false, false);
+            skiddingSoundAUD.volume = 0.0f;
 		}
 		if (_sounds.collisionSounds.Length > 0) {
 			if (_sounds.collisionSounds [0]) {
@@ -1021,19 +1041,20 @@ public class MSVehicleControllerFree : MonoBehaviour {
         // HACK INPUT HERE
         float drunkenness = DrunkennessManager.GetDrunkenness();
         float thrust = input.isBreaking() ? -1.0f : carThrust;
-		verticalInput = thrust;
+        if (!m_isThrustEnabled)
+            thrust = 0.0f;
 
-        float wheelInput = input.getWheelInput();
+		verticalInput = thrust;
 
         m_inputWheelDrunkTime += Time.deltaTime * inputWheelDrunkPhase;
 
         float inputWheelDrunkVelocity = Mathf.PerlinNoise(4.0f, m_inputWheelDrunkTime) * 2.0f - 1.0f;
         float inputWheelDrunkInput = inputWheelDrunkVelocity * inputWheelDrunkAmplitude * drunkenness;
 
-        horizontalInput = inputWheelDrunkInput + wheelInput;
+        horizontalInput = inputWheelDrunkInput + input.getWheelInput();
 
         //horizontalInput = input.getWheelInput();
-		mouseXInput = input.getHeadInput().x;
+        mouseXInput = input.getHeadInput().x;
 		mouseYInput = -input.getHeadInput().y;
         //mouseScrollWheelInput = controls.mouseScrollWheelInput;
         mouseScrollWheelInput = 0.0f;
@@ -1058,7 +1079,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		}
 		if (isInsideTheCar) {
             //handBrakeTrue = input.isBreaking();
-            handBrakeTrue = false;
+            handBrakeTrue = !m_isThrustEnabled;
 			/*if (Input.GetKeyDown (controls.controls.handBrakeInput) && controls.controls.enable_handBrakeInput_Input && Time.timeScale > 0.2f) {
 				handBrakeTrue = !handBrakeTrue;
 			}*/
@@ -1518,7 +1539,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			maxSlipTemp = 0.8f;
 		}
 
-		if (skiddingIsTrue) {
+		if (skiddingIsTrue && Time.timeSinceLevelLoad >= 0.5f) {
 			skiddingSoundAUD.volume = Mathf.Lerp (skiddingSoundAUD.volume, (maxSlipTemp * _sounds.skiddingSound.standardVolume), Time.deltaTime * 7.0f);
 			if (forwardTempSKid) {
 				if (skiddingSoundAUD.volume < (0.3f * _sounds.skiddingSound.standardVolume)) {
