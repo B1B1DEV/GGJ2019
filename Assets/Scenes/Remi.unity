@@ -390,6 +390,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114010379835618766, guid: d751d0eae82568747b23583305cc4f87,
+        type: 2}
+      propertyPath: drunkenness
+      value: 0.205
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d751d0eae82568747b23583305cc4f87, type: 2}
   m_IsPrefabAsset: 0
