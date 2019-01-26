@@ -509,6 +509,9 @@ public class MSVehicleControllerFree : MonoBehaviour {
     private float m_inputWheelInput;
     private bool m_isThrustEnabled = false;
 
+    public delegate void DestinationDelegate(MSVehicleControllerFree _vehicle, DestinationController _destination);
+    public event DestinationDelegate destinationReached;
+
     public void setThrustEnabled(bool _enabled)
     {
         m_isThrustEnabled = _enabled;
@@ -2249,5 +2252,17 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		texture.Apply();
 		return texture;
 	}
-	#endregion
+    #endregion
+
+    private void OnTriggerEnter(Collider other)
+    {
+        DestinationController destination = other.GetComponent<DestinationController>();
+        if (destination)
+        {
+            if(destinationReached != null)
+            {
+                destinationReached(this, destination);
+            }
+        }
+    }
 }

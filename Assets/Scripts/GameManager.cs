@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour {
         {
             m_car = Instantiate<MSVehicleControllerFree>(carPrefab, hit.point, m_currentStartPoint.transform.rotation);
 
+            m_car.destinationReached += onCarReachedDestination;
+
             m_minimap = Instantiate<MinimapSizing>(minimapPrefab);
             m_minimap.car = m_car.transform;
             m_minimap.house = m_currentDestination.transform;
@@ -67,10 +70,26 @@ public class GameManager : MonoBehaviour {
         //yield return new WaitUntil(() => m_avatar.GetState() != AvatarState.Start);
     }
 
+    IEnumerator EndSequence()
+    {
+        m_car.setThrustEnabled(false);
+        m_blackout.FadeTo(Color.black, 2.0f);
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     // Update is called once per frame
     void Update () {
 		
 	}
+
+    void onCarReachedDestination(MSVehicleControllerFree _car, DestinationController _destination)
+    {
+        if (_destination == m_currentDestination)
+        {
+            StartCoroutine(EndSequence());
+        }
+    }
 
     private StartPointController[] m_startPoints;
     private DestinationController[] m_destinations;
