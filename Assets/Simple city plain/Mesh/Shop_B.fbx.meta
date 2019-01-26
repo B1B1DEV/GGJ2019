@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 82fffc905fad13948a591b76e545791d
-timeCreated: 1517349111
-licenseType: Store
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
@@ -15,77 +13,77 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Brown
-    second: {fileID: 2100000, guid: dc6246920672c2d4b998fb2d21e2c81d, type: 2}
+    second: {fileID: 2100000, guid: cb429b28fdb219e48b74b456efd534f0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door_01
-    second: {fileID: 2100000, guid: e233b7beff091d94396bf046430d478b, type: 2}
+    second: {fileID: 2100000, guid: 3342dd34d7861284796f77cbd526ddf7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door_02
-    second: {fileID: 2100000, guid: 1313233f5c76c7b4dbd4c8f40879b915, type: 2}
+    second: {fileID: 2100000, guid: 54176c83cca5a194e92842d985ab9953, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door_03
-    second: {fileID: 2100000, guid: 177c2f3ccabf8da4c892d2f9bce8d36b, type: 2}
+    second: {fileID: 2100000, guid: 0e6ab986c4b212e49ba4fdc66654b860, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door_04
-    second: {fileID: 2100000, guid: fe15dca9b16c9124d85bf49b054123dc, type: 2}
+    second: {fileID: 2100000, guid: 26992a3f23e991a45853ed190a4b540b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door_05
-    second: {fileID: 2100000, guid: 404edf1092e713c40862341e6f1b3b71, type: 2}
+    second: {fileID: 2100000, guid: 4444d99ab8980b54aa78a1ab6a0e47cc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Facade
-    second: {fileID: 2100000, guid: 00248292213d5e24e94e116ea9901779, type: 2}
+    second: {fileID: 2100000, guid: 004b5d265d4832b468df3924d4977938, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Grid
-    second: {fileID: 2100000, guid: 9de30f9a19364364b907b4becbc03ddd, type: 2}
+    second: {fileID: 2100000, guid: 0efc714e4e367f5499f646fcc720f1d9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Grid_texture
-    second: {fileID: 2100000, guid: 438f39ae53e20b948bc6b96588bc2ee9, type: 2}
+    second: {fileID: 2100000, guid: 99a3c468ce94c4b4f8ff8c64954cc075, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Roof
-    second: {fileID: 2100000, guid: bccddca6113d35a40b6228fa59bba768, type: 2}
+    second: {fileID: 2100000, guid: b1019e1363de4e745b33ebcacb04e69f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Texture
-    second: {fileID: 2100000, guid: 102aadf87382f1c4b926cdcf92425aec, type: 2}
+    second: {fileID: 2100000, guid: 3f759a2d6c881c6428b86b78b6b10dd5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Window_frames
-    second: {fileID: 2100000, guid: ae7ff6d82417f78499606d98ed6ad956, type: 2}
+    second: {fileID: 2100000, guid: 5593c18081f0e2046b6063da17ab4f01, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Windows_01
-    second: {fileID: 2100000, guid: cb8e94741ae678048926694db0c13f04, type: 2}
+    second: {fileID: 2100000, guid: 4794c7bcb8055624193b152fd2668e38, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Windows_02
-    second: {fileID: 2100000, guid: 3ff6b13c0368a9243af0eb9d7987fd2c, type: 2}
+    second: {fileID: 2100000, guid: 4bf316108b9717444a4f90840e30f6f2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Windows_03
-    second: {fileID: 2100000, guid: d19b76c15e0330744af19b19c8de7f39, type: 2}
+    second: {fileID: 2100000, guid: 5f4ebc4622e898e4a91b8834fed809fe, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -104,6 +102,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -123,16 +122,20 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -152,7 +155,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

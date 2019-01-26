@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 55ca7edad2f1e3b40b4dc5801b9f454b
-timeCreated: 1517349067
-licenseType: Store
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
@@ -15,62 +13,62 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door
-    second: {fileID: 2100000, guid: 631f9331fc3f7dd4a85a72cd5afc37e3, type: 2}
+    second: {fileID: 2100000, guid: 3bbb234e820cb3c40b805b1f9938bb71, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Roof
-    second: {fileID: 2100000, guid: f86b91c362dbc2d48b268ba9fe7b2957, type: 2}
+    second: {fileID: 2100000, guid: b1019e1363de4e745b33ebcacb04e69f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WhiteWood
-    second: {fileID: 2100000, guid: ebc9f78c3dc56d646a21c9e0eece5d12, type: 2}
+    second: {fileID: 2100000, guid: ed8022bd21e06754086146a1d5e40535, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Window_frames
-    second: {fileID: 2100000, guid: ca89092f388cb9e40b5690d6c874943d, type: 2}
+    second: {fileID: 2100000, guid: 5593c18081f0e2046b6063da17ab4f01, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Windows_01
-    second: {fileID: 2100000, guid: e3adce03b13b12b41b0fd3ef39d8ba57, type: 2}
+    second: {fileID: 2100000, guid: 4794c7bcb8055624193b152fd2668e38, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Windows_02
-    second: {fileID: 2100000, guid: 1d691df3204532e489a099fa48e9d9ae, type: 2}
+    second: {fileID: 2100000, guid: 4bf316108b9717444a4f90840e30f6f2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: anger stone 1
-    second: {fileID: 2100000, guid: b8f40456ef0dc4b4b89be9b96358c040, type: 2}
+    second: {fileID: 2100000, guid: 5d2389cb073606749948a5c91f206df8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: anger stone 2
-    second: {fileID: 2100000, guid: 368f63201c8786c4c9a9f8e15e4e4818, type: 2}
+    second: {fileID: 2100000, guid: 0fb605b13cb8fc94f89781b3e1c454c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: facade
-    second: {fileID: 2100000, guid: f6fc837ebf04fbf479e5a5804862c742, type: 2}
+    second: {fileID: 2100000, guid: 004b5d265d4832b468df3924d4977938, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: metal
-    second: {fileID: 2100000, guid: 8786712cf0fed5f46b7229a61fb9d3b6, type: 2}
+    second: {fileID: 2100000, guid: 2756579a4e25c5641b1a80cb27e7dfa0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: railing
-    second: {fileID: 2100000, guid: fa56b95c76f072a4aadeec1f23e8fca6, type: 2}
+    second: {fileID: 2100000, guid: ca5662d004bab044c8ee12c0bfd10b1d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: stairs
-    second: {fileID: 2100000, guid: 969853849902c754b8f4d116abad0f92, type: 2}
+    second: {fileID: 2100000, guid: 2d4bee88dd4b9af4095162deae43c6cb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -89,6 +87,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -108,16 +107,20 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -137,7 +140,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
