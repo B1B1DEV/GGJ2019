@@ -11,6 +11,7 @@ public class MinimapSizing : MonoBehaviour {
     public float borderPercent = 20f; // percent of view to add around the 2 objects to obtain the final minimap square
 
     public RectTransform houseSprite;
+    public RectTransform carSprite;
 
     Camera minimapCam;
     float maxSize;
@@ -37,22 +38,17 @@ public class MinimapSizing : MonoBehaviour {
 
         // orthographicSize is the half of the max distance on the right or forward axes + a safty border zone and limited to the max size of the level
         float minimapSize = Mathf.Min(Mathf.Max(Mathf.Abs(car.position.x - housePosX), Mathf.Abs(car.position.z - housePosZ)) * (1 + borderPercent / 100) / 2, maxSize);
-        // minimapCam.orthographicSize = minimapSize;
+        minimapCam.orthographicSize = minimapSize;
 
         // The new Camera position is in the middle of the car and the house (y position is kept) but clamped to never display the outside of the plane level
         float posX = Mathf.Clamp((car.position.x + housePosX) / 2, -maxSize + minimapSize, maxSize - minimapSize);
         float posZ = Mathf.Clamp((car.position.z + housePosZ) / 2, -maxSize + minimapSize, maxSize - minimapSize);
-        // transform.position = new Vector3(posX, transform.position.y, posZ);
+        transform.position = new Vector3(posX, transform.position.y, posZ);
 
-        Vector3 houseIconPos = minimapCam.WorldToViewportPoint(house.position);
-        Debug.Log(houseIconPos);
-        houseIconPos = houseIconPos* minimapSize;
-        houseIconPos.x = houseIconPos.x*minimapSize -minimapSize / 2;
-        houseIconPos.y = houseIconPos.y * minimapSize - minimapSize / 2;
-        houseIconPos.z = 0;
-
-        houseSprite.localPosition = houseIconPos;
-        //houseSprite.localPosition = minimapCam.ViewportToWorldPoint(houseIconPos);
-        //houseSprite.localPosition = new Vector3(0f, 0f, 0f);
+        houseSprite.position = house.position;
+        
+        carSprite.position = car.position;
+        carSprite.rotation = car.rotation;
+        carSprite.Rotate(new Vector3(90, 0, 0));
     }
 }
