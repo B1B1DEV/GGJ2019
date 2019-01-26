@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370e51dc3fc783448912c6e5953d0219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToTotalDrunkenness: 60
   drunkenness: 0
 --- !u!114 &114102019601280094
 MonoBehaviour:
@@ -65,6 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelBounds: {fileID: 0}
+  hitEffectThreshold: 5
+  vomitGaugeMax: 45
   carPrefab: {fileID: 114597767939661950, guid: 9dd24dcb5ff8cc74d9d4fb1ef33d37b5,
     type: 2}
   minimapPrefab: {fileID: 114743649336176828, guid: 275cc424397b01a4bba4f543d8394791,

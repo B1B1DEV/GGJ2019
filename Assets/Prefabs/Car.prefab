@@ -2531,8 +2531,8 @@ MonoBehaviour:
         maxDistance: 500
         invertRotationJoystick: 1
   _vehicleTorque:
-    maxVelocityKMh: 180
-    engineTorque: 5
+    maxVelocityKMh: 80
+    engineTorque: 8
     numberOfGears: 6
     speedOfGear: 1.5
     manualAdjustmentOfTorques:
@@ -2940,10 +2940,10 @@ MonoBehaviour:
     startOn: 1
     vehicleMass: 2500
     improveControl:
-      tireSlipsFactor: 0.397
-      helpToTurn: 0.35
+      tireSlipsFactor: 1.2
+      helpToTurn: 0.1
       helpToStraightenOut: 0.1
-      downForce: 2
+      downForce: 4.24
     _aerodynamics:
       extraGravity: 1
       feelingHeavy: 1

@@ -64,11 +64,40 @@ public class GameManager : MonoBehaviour {
     {
         m_blackout.FadeTo(Color.black, 0.0f);
 
-        yield return new WaitForSeconds(1.0f);
+        AudioManager.Instance.Play("TechnoCrap", m_car.transform.position + m_car.transform.forward * 20.0f);
+        AudioManager.Instance.Play("Brouhaha", m_car.transform.position + m_car.transform.forward * 20.0f);
+        yield return new WaitForSeconds(4.5f);
+        AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
+        yield return new WaitForSeconds(0.4f);
+        AudioManager.Instance.Play("SlamDoor", m_car.transform.position);
 
+        AudioManager.Instance.Stop("Brouhaha");
+
+        AudioManager.Instance.Stop("TechnoCrap"); // Fades
+
+        for (int i = 0; i < 7; ++i)
+        {
+            AudioManager.Instance.Play("FootStep", m_car.transform.position - Vector3.up * 2.0f);
+            yield return new WaitForSeconds(0.7f);
+        }
+
+        AudioManager.Instance.Stop("OpenDoor");
+        AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance.Play("CloseDoor", m_car.transform.position);
+        AudioManager.Instance.GetSound("TechnoCrap").DestroyInstances();
+        yield return new WaitForSeconds(1.5f);
+
+        AudioManager.Instance.Play("Yawn", m_car.transform.position);
+        yield return new WaitForSeconds(1.5f);
+        AudioManager.Instance.Play("Hiccup", m_car.transform.position);
+        yield return new WaitForSeconds(0.5f);
+
+        AudioManager.Instance.Play("EngineStart", m_car.transform.position);
+        yield return new WaitForSeconds(0.2f);
         m_blackout.FadeTo(new Color(0.0f, 0.0f, 0.0f, 0.0f), 2.0f);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.3f);
 
         m_car.setThrustEnabled(true);
 
