@@ -16,6 +16,6 @@ public class GamepadInputController : InputController
 
     public override bool isBreaking()
     {
-        return Input.GetButton("Brake");
+        return Input.GetAxis("Brake") > 0.0f;
     }
 }

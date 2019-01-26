@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour {
 
     public Transform levelBounds;
 
+    [Header("VomitGauge")]
+    public float hitEffectThreshold = 5.0f;
+    public float vomitGaugeMax = 30.0f;
+
     [Header("Internal")]
     public MSVehicleControllerFree carPrefab;
     public MinimapSizing minimapPrefab;
@@ -42,6 +46,7 @@ public class GameManager : MonoBehaviour {
             m_car = Instantiate<MSVehicleControllerFree>(carPrefab, hit.point, m_currentStartPoint.transform.rotation);
 
             m_car.destinationReached += onCarReachedDestination;
+            m_car.hitCollision += onCarHitCollision;
 
             m_minimap = Instantiate<MinimapSizing>(minimapPrefab);
             m_minimap.car = m_car.transform;
@@ -78,6 +83,14 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    IEnumerator VomitSequence()
+    {
+        m_car.setThrustEnabled(false);
+        m_blackout.FadeTo(Color.black, 2.0f);
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     // Update is called once per frame
     void Update () {
 		
@@ -85,11 +98,42 @@ public class GameManager : MonoBehaviour {
 
     void onCarReachedDestination(MSVehicleControllerFree _car, DestinationController _destination)
     {
+        if (m_gameOver)
+            return;
+
         if (_destination == m_currentDestination)
         {
+            m_gameOver = true;
             StartCoroutine(EndSequence());
         }
     }
+
+    void onCarHitCollision(MSVehicleControllerFree _car, Collision _hit)
+    {
+        if (m_gameOver)
+            return;
+
+        Vector3 horizontalDirection = new Vector3(_hit.relativeVelocity.x, 0.0f, _hit.relativeVelocity.z);
+        float hitStrength = Vector3.Dot(horizontalDirection.normalized, _hit.relativeVelocity);
+        if (hitStrength > hitEffectThreshold)
+        {
+            m_vomitGauge += hitStrength;
+
+            if (m_vomitGauge >= vomitGaugeMax)
+            {
+                m_gameOver = true;
+                StartCoroutine(VomitSequence());
+            }
+        }
+    }
+
+    public float GetVomitGauge()
+    {
+        return m_vomitGauge;
+    }
+
+    private bool m_gameOver = false;
+    private float m_vomitGauge = 0.0f;
 
     private StartPointController[] m_startPoints;
     private DestinationController[] m_destinations;
