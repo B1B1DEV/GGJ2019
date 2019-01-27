@@ -1263,13 +1263,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1115973575451014}
-  m_LocalRotation: {x: 0.57751787, y: 0.550957, z: 0.42616802, w: 0.42579365}
-  m_LocalPosition: {x: 0.04, y: -0.81, z: 0}
+  m_LocalRotation: {x: 0.6146316, y: 0.5863296, z: 0.3733129, w: 0.37293857}
+  m_LocalPosition: {x: 0.27, y: -0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4200813393067878}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.2720001, y: 105.91601, z: 91.73601}
+  m_LocalEulerAnglesHint: {x: 1.184, y: 116.30801, z: 91.964005}
 --- !u!4 &4873669413878820
 Transform:
   m_ObjectHideFlags: 1
@@ -1302,13 +1302,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919022199186310}
-  m_LocalRotation: {x: 0.5775179, y: 0.5509571, z: 0.42616805, w: 0.42579365}
-  m_LocalPosition: {x: 0.08, y: 0.94, z: 0.000000029802322}
+  m_LocalRotation: {x: 0.61463135, y: 0.5863298, z: 0.37331277, w: 0.3729387}
+  m_LocalPosition: {x: 0.31, y: 0.93, z: 0.000000029802322}
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4200813393067878}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 1.2720001, y: 105.91601, z: 91.73601}
+  m_LocalEulerAnglesHint: {x: 1.184, y: 116.30801, z: 91.964005}
 --- !u!4 &4948835951248304
 Transform:
   m_ObjectHideFlags: 1
@@ -2496,8 +2496,8 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 0.88235295, b: 0.7058824, a: 1}
   m_Intensity: 1
-  m_Range: 18
-  m_SpotAngle: 66
+  m_Range: 21
+  m_SpotAngle: 63
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -2533,8 +2533,8 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 0.88235295, b: 0.7058824, a: 1}
   m_Intensity: 1
-  m_Range: 18
-  m_SpotAngle: 66
+  m_Range: 21
+  m_SpotAngle: 63
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3199,7 +3199,7 @@ MonoBehaviour:
     engineSound: {fileID: 8300000, guid: ea2f6284fb2d5a44784c012c3c786f87, type: 3}
     skiddingSound:
       standardSound: {fileID: 8300000, guid: 034580176483184419f3393bf1cefbbb, type: 3}
-      standardVolume: 0.5
+      standardVolume: 0.36
     collisionSounds:
     - {fileID: 8300000, guid: 3bd32420e10f29441a631f1ef300d8ae, type: 3}
     - {fileID: 8300000, guid: e19b158a41d5aab4bbdd9699b7339dc4, type: 3}
