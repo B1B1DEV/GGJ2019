@@ -17,7 +17,7 @@ public class VomitGaugeController : MonoBehaviour
     {
         GameManager gameManager = FindObjectOfType<GameManager>();
         Vector3 scale = liquid.localScale;
-        scale.y = gameManager.GetVomitGauge() / gameManager.vomitGaugeMax;
+        scale.y = gameManager.getVomitGauge() / gameManager.vomitGaugeMax;
         liquid.localScale = scale;
     }
 }

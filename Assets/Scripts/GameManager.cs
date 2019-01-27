@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour {
 
     [Header("VomitGauge")]
     public float hitEffectThreshold = 5.0f;
+    public float hitFactor = 0.3f;
     public float vomitGaugeMax = 30.0f;
+    public float vomitGaugeRaisePerSecond = 0.07f;
+    public float hiccupEvery = 10.0f;
 
     [Header("Internal")]
     public MSVehicleControllerFree carPrefab;
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        m_gameOver = true;
+
         m_GUI = Instantiate<RectTransform>(GUIPrefab);
 
         m_blackout = FindObjectOfType<Blackout>();
@@ -100,6 +105,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1.3f);
 
         m_car.setThrustEnabled(true);
+        m_gameOver = false;
 
         //yield return new WaitUntil(() => m_avatar.GetState() != AvatarState.Start);
     }
@@ -116,13 +122,29 @@ public class GameManager : MonoBehaviour {
     {
         m_car.setThrustEnabled(false);
         m_blackout.FadeTo(Color.black, 2.0f);
-        yield return new WaitForSeconds(2.0f);
+
+        AudioManager.Instance.Play("Hiccup", m_car.transform.position);
+        yield return new WaitForSeconds(0.5f);
+
+        AudioManager.Instance.Play("Hiccup", m_car.transform.position);
+        yield return new WaitForSeconds(0.5f);
+
+        AudioManager.Instance.Play("Vomit", m_car.transform.position);
+
+
+        yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
-    void Update () {
-		
+    void Update ()
+    {
+		if (!m_gameOver)
+        {
+            addVomit(vomitGaugeRaisePerSecond * Time.deltaTime);
+
+            m_vomitGauge = Mathf.Min(vomitGaugeMax, m_vomitGauge);
+        }
 	}
 
     void onCarReachedDestination(MSVehicleControllerFree _car, DestinationController _destination)
@@ -146,7 +168,7 @@ public class GameManager : MonoBehaviour {
         float hitStrength = Vector3.Dot(horizontalDirection.normalized, _hit.relativeVelocity);
         if (hitStrength > hitEffectThreshold)
         {
-            m_vomitGauge += hitStrength;
+            addVomit(hitStrength * hitFactor);
 
             if (m_vomitGauge >= vomitGaugeMax)
             {
@@ -156,7 +178,18 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public float GetVomitGauge()
+    void addVomit(float _value)
+    {
+        float nextVomitGauge = m_vomitGauge + _value;
+        if (Mathf.Floor(nextVomitGauge / hiccupEvery) != (Mathf.Floor(m_vomitGauge / hiccupEvery)))
+        {
+            AudioManager.Instance.Play("Hiccup", m_car.transform.position);
+        }
+        m_vomitGauge = nextVomitGauge;
+        m_vomitGauge = Mathf.Min(vomitGaugeMax, m_vomitGauge);
+    }
+
+    public float getVomitGauge()
     {
         return m_vomitGauge;
     }

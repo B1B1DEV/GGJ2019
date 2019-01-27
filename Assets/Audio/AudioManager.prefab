@@ -83,6 +83,22 @@ GameObject:
   - component: {fileID: 4451025331507622}
   - component: {fileID: 114563028245496722}
   m_Layer: 0
+  m_Name: Vomit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1399954025001034
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4076186538696208}
+  - component: {fileID: 114948439030490122}
+  m_Layer: 0
   m_Name: SlamDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,6 +247,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4076186538696208
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399954025001034}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4310302110500688}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4104000261433770
 Transform:
   m_ObjectHideFlags: 1
@@ -343,6 +372,7 @@ Transform:
   - {fileID: 4460043282651886}
   - {fileID: 4168016077802338}
   - {fileID: 4705605190483660}
+  - {fileID: 4076186538696208}
   - {fileID: 4451025331507622}
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 3
@@ -371,7 +401,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4460043282651886
 Transform:
@@ -551,12 +581,12 @@ MonoBehaviour:
   Clips:
   - {fileID: 8300000, guid: fd3afccc33d94734495a31f400eb58c5, type: 3}
   MinDelay: 0
-  MaxDelay: 0
+  MaxDelay: 0.25535536
   FadeInTime: 0
   FadeOutTime: 0
-  MinVolume: 1
-  MaxVolume: 1
-  MinPitch: 1
+  MinVolume: 0.9233934
+  MaxVolume: 0.9744645
+  MinPitch: 0.8683501
   MaxPitch: 1
   MinSpawnTime: 0
   MaxSpawnTime: 0
@@ -668,14 +698,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: SlamDoor
+  Name: Vomit
   PlaybackMode: 0
   AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
   Output: {fileID: 0}
   MaxDistance: 100
   Clips:
-  - {fileID: 8300000, guid: d104938bac5eadc44afc46254317884d, type: 3}
+  - {fileID: 8300000, guid: ac6fdd60e90a82440b72fb72622ee95a, type: 3}
   MinDelay: 0
   MaxDelay: 0
   FadeInTime: 0
@@ -754,6 +784,41 @@ MonoBehaviour:
   MaxVolume: 0.46375388
   MinPitch: 0.48480636
   MaxPitch: 0.5721381
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
+--- !u!114 &114948439030490122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399954025001034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SlamDoor
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 0}
+  MaxDistance: 100
+  Clips:
+  - {fileID: 8300000, guid: d104938bac5eadc44afc46254317884d, type: 3}
+  MinDelay: 0
+  MaxDelay: 0
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 1
+  MaxPitch: 1
   MinSpawnTime: 0
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0

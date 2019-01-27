@@ -67,7 +67,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelBounds: {fileID: 0}
   hitEffectThreshold: 5
-  vomitGaugeMax: 45
+  hitFactor: 0.3
+  vomitGaugeMax: 50
+  vomitGaugeRaisePerSecond: 0.7
+  hiccupEvery: 10
   carPrefab: {fileID: 114597767939661950, guid: 9dd24dcb5ff8cc74d9d4fb1ef33d37b5,
     type: 2}
   minimapPrefab: {fileID: 114743649336176828, guid: 275cc424397b01a4bba4f543d8394791,
