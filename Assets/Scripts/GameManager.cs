@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour {
         m_blackout.FadeTo(Color.black, 2.0f);
         yield return new WaitForSeconds(2.0f);
 
-        m_car.TurnOnAndTurnOff();
+        m_car.isInsideTheCar = false;
         yield return new WaitForSeconds(0.5f);
 
         AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
