@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour {
 
         yield return new WaitForSeconds(1.5f);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Menu");
     }
 
     IEnumerator VomitSequence()
