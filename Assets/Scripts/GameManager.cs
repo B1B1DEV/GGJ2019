@@ -198,6 +198,11 @@ public class GameManager : MonoBehaviour {
 
             m_vomitGauge = Mathf.Min(vomitGaugeMax, m_vomitGauge);
 
+            if (Input.GetButtonDown("Horn"))
+            {
+                AudioManager.Instance.Play("Horn", m_car.transform.position);
+            }
+
             // HACK TO PLAY END SEQUENCE IMMEDIATELY
             /*
             m_gameOver = true;
