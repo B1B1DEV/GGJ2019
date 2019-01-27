@@ -514,8 +514,8 @@ MonoBehaviour:
   MaxDelay: 0.46389663
   FadeInTime: 0.8
   FadeOutTime: 8
-  MinVolume: 0.5
-  MaxVolume: 0.5
+  MinVolume: 0.909207
+  MaxVolume: 0.909207
   MinPitch: 1
   MaxPitch: 1
   MinSpawnTime: 0

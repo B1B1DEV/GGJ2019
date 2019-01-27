@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using AudioToolkit;
 
 public class GameManager : MonoBehaviour {
 
@@ -77,6 +78,12 @@ public class GameManager : MonoBehaviour {
         AudioManager.Instance.Play("SlamDoor", m_car.transform.position);
 
         AudioManager.Instance.Stop("Brouhaha");
+
+        foreach (SoundInstance si in AudioManager.Instance.GetSound("TechnoCrap").PlayingInstances)
+        {
+            si.refVolume *= .35f;
+            si.source.volume = si.refVolume;
+        }
 
         AudioManager.Instance.Stop("TechnoCrap"); // Fades
 
