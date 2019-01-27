@@ -669,7 +669,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		enableEngineSound = false;
 		if (_sounds.engineSound) {
 			engineSoundAUD = GenerateAudioSource ("Sound of engine", 10, 0, _sounds.engineSound, true, true, true);
-		}
+        }
 		if (_sounds.wheelImpactSound) {
 			beatsOnWheelSoundAUD = GenerateAudioSource ("Sound of wheel beats", 10, 0.25f, _sounds.wheelImpactSound, false, false, false);
 		}
@@ -1575,7 +1575,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		}
 		if (currentGear == -1 || currentGear == 0) {
 			velxCurrentRPM = (Mathf.Clamp (KMh, (_vehicleTorque.minVelocityGears [0] * _vehicleTorque.speedOfGear), (_vehicleTorque.maxVelocityGears [0] * _vehicleTorque.speedOfGear)));
-			pitchAUD = Mathf.Clamp (((velxCurrentRPM / (_vehicleTorque.maxVelocityGears [0] * _vehicleTorque.speedOfGear))*_sounds.speedOfEngineSound*engineSoundFactor), 0.85f, _sounds.speedOfEngineSound);
+			pitchAUD = Mathf.Clamp (((velxCurrentRPM / (_vehicleTorque.maxVelocityGears [0] * _vehicleTorque.speedOfGear))*_sounds.speedOfEngineSound*engineSoundFactor),0.85f, _sounds.speedOfEngineSound);
 		} else {
 			velxCurrentRPM = (Mathf.Clamp (KMh, (_vehicleTorque.minVelocityGears [currentGear-1] * _vehicleTorque.speedOfGear), (_vehicleTorque.maxVelocityGears [currentGear-1] * _vehicleTorque.speedOfGear)));
 			nextPitchAUD = ((velxCurrentRPM / (_vehicleTorque.maxVelocityGears [currentGear-1] * _vehicleTorque.speedOfGear)) * _sounds.speedOfEngineSound*engineSoundFactor);
@@ -1600,7 +1600,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			} else {
 				if (enableEngineSound) {
 					engineSoundAUD.volume = 1;
-					engineSoundAUD.pitch = Mathf.Lerp (engineSoundAUD.pitch, 0.7f, Time.deltaTime);
+					engineSoundAUD.pitch = Mathf.Lerp (engineSoundAUD.pitch, 0.85f , Time.deltaTime); // Change from 0.7 to 0.85 to avoid to deep sound
 				} else {
 					engineSoundAUD.volume = Mathf.Lerp (engineSoundAUD.volume, 0f, Time.deltaTime);
 					engineSoundAUD.pitch = Mathf.Lerp (engineSoundAUD.pitch, 0f, Time.deltaTime);
@@ -1651,7 +1651,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
             enableEngineSound = true;
             if (_sounds.engineSound)
             {
-                engineSoundAUD.pitch = 0.5f;
+                engineSoundAUD.pitch = 0.85f; // 0.5f; Change to protect my right ear
             }
             StartCoroutine("StartEngineCoroutine", true);
             StartCoroutine("StartEngineTime");
