@@ -17,8 +17,8 @@ public class MenuManager : MonoBehaviour {
 
         m_blackout.FadeTo(new Color(0.0f, 0.0f, 0.0f, 0.0f), 2.0f);
 
-        AudioManager.Instance.Play("TechnoCrapMenu");
-        AudioManager.Instance.Play("BrouhahaMenu");
+        AudioManager.Instance.Play("TechnoCrapMenu" , FindObjectOfType<Camera>().transform.position);
+        AudioManager.Instance.Play("BrouhahaMenu", FindObjectOfType<Camera>().transform.position);
     }
 	
 	// Update is called once per frame
