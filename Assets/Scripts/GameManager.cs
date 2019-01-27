@@ -199,9 +199,10 @@ public class GameManager : MonoBehaviour {
             m_vomitGauge = Mathf.Min(vomitGaugeMax, m_vomitGauge);
 
             // HACK TO PLAY END SEQUENCE IMMEDIATELY
-            
+            /*
             m_gameOver = true;
             StartCoroutine(EndSequence());
+            */
             
         }
 	}
