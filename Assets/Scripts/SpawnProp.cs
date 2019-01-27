@@ -49,7 +49,7 @@ public class SpawnProp : MonoBehaviour {
             // Random pick
             int rn = Random.Range(0, propsList.Count-1);
             //propsList[rn].transform.SetParent(this.transform);
-            propsList[rn].transform.SetPositionAndRotation(zone.transform.position,zone.transform.rotation);
+            propsList[rn].transform.SetPositionAndRotation(zone.transform.position, propsList[rn].transform.rotation);
 
             if (propsList.Count>1)
                 propsList.RemoveAt(rn);
