@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4531726972310230}
   - component: {fileID: 114729157895130906}
   m_Layer: 0
-  m_Name: OpenDoor
+  m_Name: Horn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,6 +327,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1968758562732090
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4463471086010030}
+  - component: {fileID: 114943991201345292}
+  m_Layer: 0
+  m_Name: OpenDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1978381059914410
 GameObject:
   m_ObjectHideFlags: 1
@@ -434,7 +450,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4531726972310230}
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -474,7 +491,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4531726972310230}
+  - {fileID: 4463471086010030}
   - {fileID: 4286623375585304}
   - {fileID: 4053831188092314}
   - {fileID: 4284353346575738}
@@ -544,6 +561,19 @@ Transform:
   m_Father: {fileID: 4310302110500688}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4463471086010030
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968758562732090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4310302110500688}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4486665099274990
 Transform:
   m_ObjectHideFlags: 1
@@ -564,11 +594,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1013411463913300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4310302110500688}
+  m_Father: {fileID: 4260432307470342}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4659071502519204
@@ -1018,21 +1048,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: OpenDoor
+  Name: Horn
   PlaybackMode: 0
   AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
   Output: {fileID: 0}
   MaxDistance: 100
   Clips:
-  - {fileID: 8300000, guid: 06b0ddc673520c445bd8bb8978e0786c, type: 3}
+  - {fileID: 8300000, guid: 5b420c0c6bc3d69429a408df6921fcd0, type: 3}
   MinDelay: 0
   MaxDelay: 0
   FadeInTime: 0
   FadeOutTime: 0
   MinVolume: 1
   MaxVolume: 1
-  MinPitch: 0.6
+  MinPitch: 1
   MaxPitch: 1
   MinSpawnTime: 0
   MaxSpawnTime: 0
@@ -1174,6 +1204,41 @@ MonoBehaviour:
   MaxVolume: 0.46375388
   MinPitch: 0.48480636
   MaxPitch: 0.5721381
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
+--- !u!114 &114943991201345292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968758562732090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: OpenDoor
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 0}
+  MaxDistance: 100
+  Clips:
+  - {fileID: 8300000, guid: 06b0ddc673520c445bd8bb8978e0786c, type: 3}
+  MinDelay: 0
+  MaxDelay: 0
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 0.6
+  MaxPitch: 1
   MinSpawnTime: 0
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0
