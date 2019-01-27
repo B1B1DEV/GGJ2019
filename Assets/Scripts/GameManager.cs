@@ -186,7 +186,8 @@ public class GameManager : MonoBehaviour {
 
 
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        SceneManager.LoadScene("Menu");
     }
 
     // Update is called once per frame
