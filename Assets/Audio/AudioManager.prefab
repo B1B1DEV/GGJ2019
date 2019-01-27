@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4705605190483660}
   - component: {fileID: 114735633251272812}
   m_Layer: 0
-  m_Name: Brouhaha
+  m_Name: BrouhahaMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,6 +233,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1694142397783416
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4194278786537462}
+  - component: {fileID: 114679208486494452}
+  m_Layer: 0
+  m_Name: Brouhaha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1750126219688626
 GameObject:
   m_ObjectHideFlags: 1
@@ -242,6 +258,22 @@ GameObject:
   m_Component:
   - component: {fileID: 4104000261433770}
   - component: {fileID: 114118191384562334}
+  m_Layer: 0
+  m_Name: TechnoCrapMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1868135574099840
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4104201819093204}
+  - component: {fileID: 114730111889564404}
   m_Layer: 0
   m_Name: TechnoCrap
   m_TagString: Untagged
@@ -383,7 +415,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4104000261433770
 Transform:
@@ -392,11 +424,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750126219688626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.502463, y: -10.010786, z: -20.61369}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4486665099274990}
-  m_RootOrder: 0
+  m_Father: {fileID: 4310302110500688}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4104201819093204
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868135574099840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4310302110500688}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4160378820645924
 Transform:
@@ -427,6 +472,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4310302110500688}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4194278786537462
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694142397783416}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4310302110500688}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4210432633574986
 Transform:
@@ -497,7 +555,8 @@ Transform:
   - {fileID: 4284353346575738}
   - {fileID: 4460043282651886}
   - {fileID: 4168016077802338}
-  - {fileID: 4705605190483660}
+  - {fileID: 4194278786537462}
+  - {fileID: 4104201819093204}
   - {fileID: 4076186538696208}
   - {fileID: 4861719334248920}
   - {fileID: 4763896473618518}
@@ -506,6 +565,8 @@ Transform:
   - {fileID: 4451025331507622}
   - {fileID: 4371091903020370}
   - {fileID: 4401394569827106}
+  - {fileID: 4705605190483660}
+  - {fileID: 4104000261433770}
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -520,7 +581,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4401394569827106
 Transform:
@@ -533,7 +594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4451025331507622
 Transform:
@@ -546,7 +607,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4460043282651886
 Transform:
@@ -583,8 +644,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.502463, y: 10.010786, z: 20.61369}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4104000261433770}
+  m_Children: []
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -612,7 +672,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4705605190483660
 Transform:
@@ -625,7 +685,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 6
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4763896473618518
 Transform:
@@ -638,7 +698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4861719334248920
 Transform:
@@ -651,7 +711,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4948873196913430
 Transform:
@@ -664,7 +724,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4310302110500688}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114073767813596930
 MonoBehaviour:
@@ -712,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: TechnoCrap
+  Name: TechnoCrapMenu
   PlaybackMode: 1
   AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
@@ -723,7 +783,7 @@ MonoBehaviour:
   MinDelay: 0.46389663
   MaxDelay: 0.46389663
   FadeInTime: 0.8
-  FadeOutTime: 8
+  FadeOutTime: 2
   MinVolume: 0.909207
   MaxVolume: 0.909207
   MinPitch: 1
@@ -1037,6 +1097,41 @@ MonoBehaviour:
   PlayingInstances: []
   Fading: 0
   isPlaying: 0
+--- !u!114 &114679208486494452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694142397783416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Brouhaha
+  PlaybackMode: 1
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 0}
+  MaxDistance: 100
+  Clips:
+  - {fileID: 8300000, guid: 7bcb004eb1598b7488c505839624f5c0, type: 3}
+  MinDelay: 0
+  MaxDelay: 0
+  FadeInTime: 0.8
+  FadeOutTime: 0
+  MinVolume: 0.48361468
+  MaxVolume: 0.48361468
+  MinPitch: 1
+  MaxPitch: 1
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
 --- !u!114 &114729157895130906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1072,6 +1167,41 @@ MonoBehaviour:
   PlayingInstances: []
   Fading: 0
   isPlaying: 0
+--- !u!114 &114730111889564404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868135574099840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: TechnoCrap
+  PlaybackMode: 1
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 0}
+  MaxDistance: 100
+  Clips:
+  - {fileID: 8300000, guid: 1370f8ad1d48bb343a00e8cdeda56eaf, type: 3}
+  MinDelay: 0.46389663
+  MaxDelay: 0.46389663
+  FadeInTime: 0.8
+  FadeOutTime: 8
+  MinVolume: 0.909207
+  MaxVolume: 0.909207
+  MinPitch: 1
+  MaxPitch: 1
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 1
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
 --- !u!114 &114735633251272812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1083,7 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Brouhaha
+  Name: BrouhahaMenu
   PlaybackMode: 1
   AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
@@ -1094,7 +1224,7 @@ MonoBehaviour:
   MinDelay: 0
   MaxDelay: 0
   FadeInTime: 0.8
-  FadeOutTime: 0
+  FadeOutTime: 2
   MinVolume: 0.48361468
   MaxVolume: 0.48361468
   MinPitch: 1
