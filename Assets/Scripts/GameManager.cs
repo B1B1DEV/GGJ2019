@@ -158,7 +158,12 @@ public class GameManager : MonoBehaviour {
             yield return new WaitForSeconds(0.7f);
         }
 
-        yield return new WaitForSeconds(1.4f);
+        AudioManager.Instance.Play("Bed1", m_car.transform.position);
+
+        yield return new WaitForSeconds(0.7f);
+        AudioManager.Instance.Play("Bed2", m_car.transform.position);
+
+        yield return new WaitForSeconds(1.5f);
         AudioManager.Instance.Play("Satisfaction", m_car.transform.position);
 
         yield return new WaitForSeconds(1.5f);
@@ -194,10 +199,10 @@ public class GameManager : MonoBehaviour {
             m_vomitGauge = Mathf.Min(vomitGaugeMax, m_vomitGauge);
 
             // HACK TO PLAY END SEQUENCE IMMEDIATELY
-            /*
+            
             m_gameOver = true;
             StartCoroutine(EndSequence());
-            */
+            
         }
 	}
 
