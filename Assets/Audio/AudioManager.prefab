@@ -962,8 +962,8 @@ MonoBehaviour:
   FadeOutTime: 0.2
   MinVolume: 0.56873316
   MaxVolume: 0.56873316
-  MinPitch: 1.107533
-  MaxPitch: 1.107533
+  MinPitch: 1.3050078
+  MaxPitch: 1.3050078
   MinSpawnTime: 0
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0
