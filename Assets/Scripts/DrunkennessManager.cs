@@ -24,8 +24,11 @@ public class DrunkennessManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        drunkenness = Mathf.Clamp01(drunkenness + Time.deltaTime / timeToTotalDrunkenness);
-	}
+        if (!FindObjectOfType<GameManager>().isGameOver())
+        {
+            drunkenness = Mathf.Clamp01(drunkenness + Time.deltaTime / timeToTotalDrunkenness);
+        }
+    }
 
     public static DrunkennessManager Instance()
     {

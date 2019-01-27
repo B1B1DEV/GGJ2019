@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
     public MinimapSizing minimapPrefab;
     public RectTransform GUIPrefab;
 
+    [Header("Debug")]
+    public bool skipIntro = false;
+
     // Use this for initialization
     void Start ()
     {
@@ -70,43 +73,46 @@ public class GameManager : MonoBehaviour {
     {
         m_blackout.FadeTo(Color.black, 0.0f);
 
-        AudioManager.Instance.Play("TechnoCrap", m_car.transform.position + m_car.transform.forward * 20.0f);
-        AudioManager.Instance.Play("Brouhaha", m_car.transform.position + m_car.transform.forward * 20.0f);
-        yield return new WaitForSeconds(4.5f);
-        AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
-        yield return new WaitForSeconds(0.4f);
-        AudioManager.Instance.Play("SlamDoor", m_car.transform.position);
-
-        AudioManager.Instance.Stop("Brouhaha");
-
-        foreach (SoundInstance si in AudioManager.Instance.GetSound("TechnoCrap").PlayingInstances)
+        if (!skipIntro)
         {
-            si.refVolume *= .35f;
-            si.source.volume = si.refVolume;
+            AudioManager.Instance.Play("TechnoCrap", m_car.transform.position + m_car.transform.forward * 20.0f);
+            AudioManager.Instance.Play("Brouhaha", m_car.transform.position + m_car.transform.forward * 20.0f);
+            yield return new WaitForSeconds(4.5f);
+            AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
+            yield return new WaitForSeconds(0.4f);
+            AudioManager.Instance.Play("SlamDoor", m_car.transform.position);
+
+            AudioManager.Instance.Stop("Brouhaha");
+
+            foreach (SoundInstance si in AudioManager.Instance.GetSound("TechnoCrap").PlayingInstances)
+            {
+                si.refVolume *= .35f;
+                si.source.volume = si.refVolume;
+            }
+
+            AudioManager.Instance.Stop("TechnoCrap"); // Fades
+
+            for (int i = 0; i < 7; ++i)
+            {
+                AudioManager.Instance.Play("FootStep", m_car.transform.position - Vector3.up * 2.0f);
+                yield return new WaitForSeconds(0.7f);
+            }
+
+            AudioManager.Instance.Stop("OpenDoor");
+            AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
+            yield return new WaitForSeconds(0.5f);
+            AudioManager.Instance.Play("CloseDoor", m_car.transform.position);
+            AudioManager.Instance.GetSound("TechnoCrap").DestroyInstances();
+            yield return new WaitForSeconds(1.5f);
+
+            AudioManager.Instance.Play("Yawn", m_car.transform.position);
+            yield return new WaitForSeconds(1.5f);
+            AudioManager.Instance.Play("Hiccup", m_car.transform.position);
+            yield return new WaitForSeconds(0.5f);
+
         }
-
-        AudioManager.Instance.Stop("TechnoCrap"); // Fades
-
-        for (int i = 0; i < 7; ++i)
-        {
-            AudioManager.Instance.Play("FootStep", m_car.transform.position - Vector3.up * 2.0f);
-            yield return new WaitForSeconds(0.7f);
-        }
-
-        AudioManager.Instance.Stop("OpenDoor");
-        AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
-        yield return new WaitForSeconds(0.5f);
-        AudioManager.Instance.Play("CloseDoor", m_car.transform.position);
-        AudioManager.Instance.GetSound("TechnoCrap").DestroyInstances();
-        yield return new WaitForSeconds(1.5f);
-
-        AudioManager.Instance.Play("Yawn", m_car.transform.position);
-        yield return new WaitForSeconds(1.5f);
-        AudioManager.Instance.Play("Hiccup", m_car.transform.position);
-        yield return new WaitForSeconds(0.5f);
 
         AudioManager.Instance.Play("EngineStart", m_car.transform.position);
-        
         
         yield return new WaitForSeconds(1.3f);
 
@@ -125,6 +131,38 @@ public class GameManager : MonoBehaviour {
         m_car.setThrustEnabled(false);
         m_blackout.FadeTo(Color.black, 2.0f);
         yield return new WaitForSeconds(2.0f);
+
+        m_car.TurnOnAndTurnOff();
+        yield return new WaitForSeconds(0.5f);
+
+        AudioManager.Instance.Play("OpenDoor", m_car.transform.position);
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance.Play("CloseDoor", m_car.transform.position);
+
+        for (int i = 0; i < 5; ++i)
+        {
+            AudioManager.Instance.Play("FootStep", m_car.transform.position - Vector3.up * 2.0f);
+            yield return new WaitForSeconds(0.7f);
+        }
+
+        AudioManager.Instance.Play("Keys", m_car.transform.position);
+        yield return new WaitForSeconds(2.2f);
+        AudioManager.Instance.Play("OpenHouseDoor", m_car.transform.position);
+        yield return new WaitForSeconds(2.0f);
+        AudioManager.Instance.Play("SlamDoor", m_car.transform.position);
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 0; i < 4; ++i)
+        {
+            AudioManager.Instance.Play("FootStep2", m_car.transform.position - Vector3.up * 2.0f);
+            yield return new WaitForSeconds(0.7f);
+        }
+
+        yield return new WaitForSeconds(1.4f);
+        AudioManager.Instance.Play("Satisfaction", m_car.transform.position);
+
+        yield return new WaitForSeconds(1.5f);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -154,6 +192,12 @@ public class GameManager : MonoBehaviour {
             addVomit(vomitGaugeRaisePerSecond * Time.deltaTime);
 
             m_vomitGauge = Mathf.Min(vomitGaugeMax, m_vomitGauge);
+
+            // HACK TO PLAY END SEQUENCE IMMEDIATELY
+            /*
+            m_gameOver = true;
+            StartCoroutine(EndSequence());
+            */
         }
 	}
 
@@ -202,6 +246,11 @@ public class GameManager : MonoBehaviour {
     public float getVomitGauge()
     {
         return m_vomitGauge;
+    }
+
+    public bool isGameOver()
+    {
+        return m_gameOver;
     }
 
     private bool m_gameOver = false;
