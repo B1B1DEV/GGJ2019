@@ -1631,7 +1631,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 	#endregion
 
 	#region CoroutineStartEndTurnOff
-	void TurnOnAndTurnOff(){
+	public void TurnOnAndTurnOff(){
 		/*if (youCanCall && isInsideTheCar && controls.controls.enable_startTheVehicle_Input) {
 			if ((Input.GetKeyDown (controls.controls.startTheVehicle) && !theEngineIsRunning) || (Mathf.Abs(verticalInput) > 0.5f && !theEngineIsRunning)) {
 				enableEngineSound = true;
@@ -1656,7 +1656,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
             StartCoroutine("StartEngineCoroutine", true);
             StartCoroutine("StartEngineTime");
         }
-        if (!isInsideTheCar && theEngineIsRunning) {
+        if (isInsideTheCar && theEngineIsRunning) {
 			StartCoroutine ("StartEngineCoroutine", false);
 			StartCoroutine ("TurnOffEngineTime");
 		}
