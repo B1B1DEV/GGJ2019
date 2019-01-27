@@ -99,12 +99,15 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
 
         AudioManager.Instance.Play("EngineStart", m_car.transform.position);
-        yield return new WaitForSeconds(0.2f);
-        m_blackout.FadeTo(new Color(0.0f, 0.0f, 0.0f, 0.0f), 2.0f);
-
+        
+        
         yield return new WaitForSeconds(1.3f);
 
         m_car.setThrustEnabled(true);
+
+        yield return new WaitForSeconds(2f);
+
+        m_blackout.FadeTo(new Color(0.0f, 0.0f, 0.0f, 0.0f), 2.0f);
         m_gameOver = false;
 
         //yield return new WaitUntil(() => m_avatar.GetState() != AvatarState.Start);
