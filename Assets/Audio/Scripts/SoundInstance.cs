@@ -9,9 +9,9 @@ namespace AudioToolkit
     {
         Sound parentSound;
 
-        AudioSource source;
+        public AudioSource source;
 
-        float refVolume;
+        public float refVolume;
 
         float fadeFactor = 0f;
 
